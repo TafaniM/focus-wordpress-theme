@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-taxonomy">
+			<section class="article-content">
+				<h1 class="taxonomy-h1">{{taxonomy_title}}</h1>
+				<div class="taxonomy-body">
+
+					{% if posts %}
+						<h2>Photographes</h2>
+						{% for post in posts %}
+							<div class="taxonomy-post">
+								<h2 class="taxonomy-post-title"><a href="{{post.link}}">{{post.title}}</a></h2>
+								<img class="taxonomy-post-image" src="{{post.thumbnail.src('medium')}}" alt="{{post.thumbnail.alt}}">
+								<p class="taxonomy-post-date">{{post.date}}</p>
+								<p class="taxonomy-post-excerpt">{{post.excerpt}}</p>
+							</div>
+						{% endfor %}
+					{% endif %}
+
+					{% if pictures %}
+						<h2>Galerie</h2>
+						{% for picture in pictures %}						
+							<div class="taxonomy-picture">
+								<img class="taxonomy-post-image" src="{{picture.guid|resize(300)}}" alt="{{picture.thumbnail.alt}}">
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</section>
+		</article>
+	</div>
+{% endblock %}

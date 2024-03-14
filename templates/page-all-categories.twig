@@ -1,0 +1,42 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<h1 class="article-h1">{{post.title}}</h1>
+				<div class="article-body">
+					{{post.content}}
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}
+
+
+{% block allcategories %}
+<!-- start: allcategorie block -->
+
+	<article class="photographers-block">
+		{# <h2 class="">trending photographer</h2>         #}
+		<ul>
+			{% for term in categories %}
+				<li><a href="{{ term.link }}">{{ term.title }}</a> {{ term.meta('popular')|join('') }}
+				<img src="{{term.thumbnail.src('medium')}}" alt="{{term.thumbnail.alt}}"></li>
+				{# {% include 'partial/article-card.twig' %} #}
+			{% endfor %}
+		</ul>
+
+		{% if photo_types %}
+			<ul>
+				{% for photo_type in photo_types %}
+					<li><a href="{{site.url}}/{{photo_type.taxonomy}}/{{photo_type.slug}}">{{photo_type.name}}</a> <img src="{{photo_type.image_url|resize(300)}}"></li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+		
+	</article>
+        
+<!-- end: allcategorie block -->
+{% endblock %}
+

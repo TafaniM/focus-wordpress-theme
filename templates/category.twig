@@ -1,0 +1,23 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-category">
+			<section class="article-content">
+				<h1 class="category-h1">{{category_title}}</h1>
+				<div class="category-body">
+
+					{% for post in posts %}
+						<div class="category-post">
+							<h2 class="category-post-title"><a href="{{post.url}}">{{post.title}}</a></h2>
+							<img class="category-post-image" src="{{post.thumbnail.src('medium')}}" alt="{{post.thumbnail.alt}}">
+							<p class="category-post-date">{{post.date}}</p>
+							<p class="category-post-excerpt">{{post.excerpt}}</p>
+						</div>
+					{% endfor %}
+
+				</div>
+			</section>
+		</article>
+	</div>
+{% endblock %}

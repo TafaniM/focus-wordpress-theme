@@ -1,0 +1,128 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<h1 class="article-h1">{{post.title}}</h1>
+				<div class="article-body">
+					{{post.content}}
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}
+
+
+{% block photographers %}
+<!-- start: photographer block -->
+
+	<article class="photographers-block">
+		<h2 class="">trending photographer</h2>        
+		<ul>
+			{% for profile in photographer %}
+				<li><a href="{{ profile.link }}">{{ profile.title }}</a> {{ profile.meta('popular')|join('') }}</li>
+				{# {% include 'partial/article-card.twig' %} #}
+			{% endfor %}
+		</ul>
+		
+	</article>
+        
+<!-- end: photographer block -->
+{% endblock %}
+
+{% block popular %}
+<!-- start: photographer block -->
+
+	<article class="popular-block">
+		<h2 class="">popular photographer</h2>        
+		<ul>
+			{% for profile in popular %}
+				<li><a href="{{ profile.link }}">{{ profile.title }}</a></li>
+				{# {% include 'partial/article-card.twig' %} #}
+			{% endfor %}
+		</ul>
+	</article>
+        
+<!-- end: photographer block -->
+{% endblock %}
+
+
+
+
+
+
+
+{% block categories %}
+<!-- start: categorie block -->
+
+	<article class="photographers-block">
+		<h2 class="">popular categories</h2>        
+		<ul>
+			{% for term in categories %}
+				<li><a href="{{ term.link }}">{{ term.title }}</a> {{ term.meta('popular')|join('') }}
+				<img src="{{term.thumbnail.src('medium')}}" alt="{{term.thumbnail.alt}}"></li>
+				{# {% include 'partial/article-card.twig' %} #}
+			{% endfor %}
+		</ul>
+		
+	</article>
+        
+<!-- end: categorie block -->
+{% endblock %}
+
+
+
+
+
+
+
+
+	  {# {% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+			<section class="article-content">
+				<h1 class="article-h1">{{ post.title }}</h1>
+				<div class="article-body">
+					{{ post.content }}
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}
+
+{% block trending %}
+<!-- start: photographer header -->
+<header class="flex justify-between items-baseline">
+    <h2 class="text-3xl font-bold tracking-tight mb-2">trending photographer</h2>
+    <p><a href="#"><button class="px-2 py-0 rounded-md hover:bg-slate-200 text-slate-900 transition-all">all
+              articles</button></a></p>
+</header>
+<!-- end: photographer header -->
+<!-- start: photographer gallery -->
+<div class="article-gallery   grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-white pt-8">
+    <ul>
+        {% for photographer in photographers %}
+            {% include 'partial/article-card.twig' %}
+        {% endfor %}
+    </ul>
+    <div class="sm:col-span-2 lg:col-span-3 text-center py-4">
+        <button
+            class="px-4 py-2 border-2 rounded-md border-slate-800 bg-white hover:bg-slate-800 text-slate-800 hover:text-white transition-all">read
+            more…</button>
+    </div>
+</div>
+<!-- end: photographer gallery -->
+{% endblock %} #}
+
+
+
+
+
+
+
+
+
+
