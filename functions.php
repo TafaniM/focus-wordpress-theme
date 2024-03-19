@@ -65,6 +65,7 @@ class StarterSite extends Timber\Site {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'focus_styles' ));
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -87,6 +88,11 @@ class StarterSite extends Timber\Site {
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
 		return $context;
+	}
+
+	public function focus_styles() {
+		wp_register_style( 'focus-styles', get_template_directory_uri() . '/css/index.css');
+		wp_enqueue_style( 'focus-styles' );
 	}
 
 	public function theme_supports() {
