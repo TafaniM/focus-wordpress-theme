@@ -8,8 +8,14 @@
             <img src="{{ post.thumbnail.src }}" alt="{{ post.thumbnail.alt }}">
           </div>
           <div class="col-12 col-md-9 offset-md-3">
-            <a href="">Célébrités</a>
-            <a href="">mode</a>
+            {# <a href="">Célébrités</a>
+            <a href="">mode</a> #}
+			{% for term in post.terms('photo-type') %}
+				<a href="{{ site.link }}/{{ term.taxonomy }}/{{ term.slug }}">{{ term.name }}</a>
+			{% endfor %}
+			{# {% for term in categories %}
+				<a href="{{ site.link }}/{{ term.taxonomy }}/{{ term.slug }}">{{ term.name }}</a>
+			{% endfor %} #}
             <h1>{{ post.title }}</h1>
 				<div class="article-body">
 					{{ post.content }}
@@ -21,12 +27,22 @@
       </div>
     </div>
 
-				{% if pictures %}
+
+
+
+
+
+		{% if pictures %}
+			{% include 'partial/pictures-gallery.twig' %}
+		{% endif %}
+
+
+				{# {% if pictures %}
 					<h2>Galerie</h2>
 					{% for picture in pictures %}						
 						<div class="taxonomy-picture">
 							<img class="taxonomy-post-image" src="{{picture.guid|resize(300)}}" alt="{{picture.thumbnail.alt}}">
 						</div>
 					{% endfor %}
-				{% endif %}
+				{% endif %} #}
 {% endblock %}

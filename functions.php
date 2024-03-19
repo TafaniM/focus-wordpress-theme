@@ -66,6 +66,7 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'focus_styles' ));
+		add_action( 'wp_enqueue_scripts', array( $this, 'focus_scripts' ));
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -93,6 +94,13 @@ class StarterSite extends Timber\Site {
 	public function focus_styles() {
 		wp_register_style( 'focus-styles', get_template_directory_uri() . '/css/index.css');
 		wp_enqueue_style( 'focus-styles' );
+	}
+
+	public function focus_scripts() {
+		// wp_register_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js', array(), '3.12.5', true);
+		wp_register_script( 'focus-scripts', get_template_directory_uri() . '/js/index.js', array(), '1.0.0', true);
+		// wp_enqueue_script( 'gsap' );
+		wp_enqueue_script( 'focus-scripts' );
 	}
 
 	public function theme_supports() {

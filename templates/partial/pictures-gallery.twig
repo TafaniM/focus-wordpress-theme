@@ -1,0 +1,24 @@
+<div class="gallery">
+  <div class="container">
+    <div class="row">
+        <div class="col-12">
+          <h2>Galerie</h2>
+        </div>
+        {% for picture in pictures %}
+          <div class="col-12 col-md-4">
+            <img src="{{ picture.guid }}" alt="{{ picture.thumbnail.alt }}">
+          </div>
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+      <div id="overlay2">
+      <div id="overlay2-content">
+          <button id="closeButton" class="overlay2-close-button">&times;</button>
+          <button id="prevButton" class="overlay2-button">&lt;</button>
+          <img id="overlay2-image" src="" alt="">
+          <button id="nextButton" class="overlay2-button">&gt;</button>
+          <p id="overlay2-caption"></p>
+      </div>
+  </div>

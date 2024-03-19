@@ -115,7 +115,7 @@ h4 {
   }
 }
 
-h5 {
+h1 {
   margin: 20px 0;
   font-family: libre-bodoni, sans-serif;
   font-size: 80px;
@@ -124,13 +124,13 @@ h5 {
 }
 
 @media (width <= 1200px) {
-  h5 {
+  h1 {
     font-size: 60px;
   }
 }
 
 @media (width <= 768px) {
-  h5 {
+  h1 {
     font-size: 40px;
   }
 }
@@ -5139,7 +5139,7 @@ a:hover {
   padding-bottom: 260px;
 }
 
-h1 {
+h5 {
   text-transform: uppercase;
   margin-bottom: 60px;
   font-family: RightGothic;
@@ -5158,7 +5158,7 @@ h1 {
     padding-bottom: 180px;
   }
 
-  h1 {
+  h5 {
     margin-bottom: 30px;
     font-size: 110px;
   }
@@ -5173,7 +5173,7 @@ h1 {
     padding-bottom: 150px;
   }
 
-  h1 {
+  h5 {
     font-size: 68px;
   }
 
@@ -5358,19 +5358,7 @@ footer img {
 }
 
 .presentationphotographer p {
-  padding-bottom: 260px;
-}
-
-@media (width <= 1200px) {
-  .presentationphotographer p {
-    padding-bottom: 180px;
-  }
-}
-
-@media (width <= 768px) {
-  .presentationphotographer p {
-    padding-bottom: 150px;
-  }
+  padding-bottom: 3vh;
 }
 
 .gallery img {
@@ -5440,6 +5428,22 @@ body.overlay-open {
   position: absolute;
   top: -40px;
   right: 0;
+}
+
+.gallery h2 {
+  padding-top: 260px;
+}
+
+@media (width <= 1200px) {
+  .gallery h2 {
+    padding-top: 180px;
+  }
+}
+
+@media (width <= 768px) {
+  .gallery h2 {
+    padding-top: 150px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
