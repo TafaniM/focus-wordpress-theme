@@ -7,7 +7,48 @@
 				<h1 class="taxonomy-h1">{{taxonomy_title}}</h1>
 				<div class="taxonomy-body">
 
+
+
+
+
+
+
+
 					{% if posts %}
+
+					<section class="trendingphotographer">
+						<div class="container">
+							<div class="row">
+								<div class="col-12 col-md-4">
+									<h2>Photographes</h2>
+								</div>
+						{% for post in posts %}
+						<div class="row">
+            	<div class="col-12 col-lg-4"> 
+								<a href="{{post.link}}">
+									<article class="cardphotographer">
+										<div class="taxonomy-post">
+											<img class="taxonomy-post-image" src="{{post.thumbnail.src('medium')}}" alt="{{post.thumbnail.alt}}">
+												<div class="overlay">
+													{% for term in post.terms('photo-type') %}
+														<a href="{{ site.link }}/{{ term.taxonomy }}/{{ term.slug }}">{{ term.name }}</a>
+													{% endfor %}
+													<h3 class="taxonomy-post-title"><a href="{{post.link}}">{{post.title}}</a></h3>
+												</div>
+										</div>
+									</article>
+								</a>
+							</div>
+						</div>
+
+						{% endfor %}
+
+					    </div>
+        		</div>
+      		</section>
+					{% endif %} 
+
+					{# {% if posts %}
 						<h2>Photographes</h2>
 						{% for post in posts %}
 							<div class="taxonomy-post">
@@ -17,7 +58,7 @@
 								<p class="taxonomy-post-excerpt">{{post.excerpt}}</p>
 							</div>
 						{% endfor %}
-					{% endif %} 
+					{% endif %}  #}
 
 					{% if pictures %}
 						{% include 'partial/pictures-gallery.twig' %}

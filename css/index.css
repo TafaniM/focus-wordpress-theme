@@ -66,13 +66,6 @@ h2 {
   }
 }
 
-h3 {
-  font-family: libre-bodoni, sans-serif;
-  font-size: 30px;
-  font-style: italic;
-  font-weight: 500;
-}
-
 a {
   text-transform: uppercase;
   font-size: 20px;
@@ -5182,6 +5175,13 @@ h5 {
   }
 }
 
+h3 {
+  font-family: libre-bodoni, sans-serif;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 500;
+}
+
 .cardphotographer:hover {
   z-index: 1;
   transition: transform .3s;
@@ -5197,6 +5197,16 @@ h5 {
 .cardphotographer a {
   color: #dedede;
   font-size: 12px;
+}
+
+.cardphotographer h3 a {
+  color: inherit;
+  text-transform: capitalize;
+  font-family: libre-bodoni, sans-serif;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 .cardphotographer img {

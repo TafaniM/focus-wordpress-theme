@@ -27,22 +27,8 @@
       </div>
     </div>
 
+	{% if pictures %}
+		{% include 'partial/pictures-gallery.twig' %}
+	{% endif %}
 
-
-
-
-
-		{% if pictures %}
-			{% include 'partial/pictures-gallery.twig' %}
-		{% endif %}
-
-
-				{# {% if pictures %}
-					<h2>Galerie</h2>
-					{% for picture in pictures %}						
-						<div class="taxonomy-picture">
-							<img class="taxonomy-post-image" src="{{picture.guid|resize(300)}}" alt="{{picture.thumbnail.alt}}">
-						</div>
-					{% endfor %}
-				{% endif %} #}
 {% endblock %}
