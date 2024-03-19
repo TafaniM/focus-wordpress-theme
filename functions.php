@@ -92,7 +92,10 @@ class StarterSite extends Timber\Site {
 	}
 
 	public function focus_styles() {
+		wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap');
 		wp_register_style( 'focus-styles', get_template_directory_uri() . '/css/index.css');
+		
+		wp_enqueue_style( 'google-fonts' );
 		wp_enqueue_style( 'focus-styles' );
 	}
 
