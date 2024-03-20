@@ -5107,8 +5107,28 @@ a:hover {
   padding: 50px;
 }
 
-.logofocus img {
-  width: 100%;
+.menu {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.menu nav li {
+  margin-right: 10vh;
+  display: inline-block;
+}
+
+.menu nav li:last-child {
+  margin-right: 0;
+}
+
+.logofocus h1 a {
+  text-transform: uppercase;
+  text-align: left;
+  font-family: RightGothic, sans-serif;
+  font-size: 70px;
+  font-style: normal;
+  text-decoration: none;
+  display: block;
 }
 
 @media (width <= 1200px) {

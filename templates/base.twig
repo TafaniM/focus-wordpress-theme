@@ -15,19 +15,21 @@
 					<div class="menu">
 						<div class="container">
 							<div class="row">
-								<div class="col-12 col-md-2">
+								<div class="col-12 col-md-5">
 								{% block logo %}
 								{# <div class="logofocus">
 									<img src="{{ theme.link }}/img/logoFocus.svg" alt="Focus">
 								</div> #}
-                <div class="wrapper">
-                  <h1 class="hdr-logo" role="banner">
-                    <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-                  </h1>
-                </div>
+                <div class="logofocus">
+                  <div class="wrapper">
+                    <h1 class="hdr-logo" role="banner">
+                      <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+                    </h1>
+                  </div>
+								</div>
 								{% endblock %}
 								</div>
-								<div class="col-12 col-md-3 offset-md-3">
+								<div class="col-12 col-md-7">
 									<div class="wrapper">
 										<nav id="nav-main" class="nav-main" role="navigation">
 											<a href="">{% include "menu.twig" with {'items': menu.get_items} %}</a>
@@ -50,13 +52,19 @@
 							</div>
 							<div class="col-3 offset-8">
 							<div class="menu-icon">
-								<img src="img/burgermenu.37eb60b3.svg" alt="Menu">
+                <img src="{{ theme.link }}/img/burgermenu.svg" alt="Menu">
+								{# <img src="img/burgermenu.37eb60b3.svg" alt="Menu"> #}
 							</div>
 							</div>
 							<div class="menu-content">
 								<ul>
-									<li><a href="#">tous les photographes</a></li>
-									<li><a href="#">toutes les catégories</a></li>
+									<li><a href="#">
+                    <div class="wrapper">
+                      <nav id="nav-main" class="nav-main" role="navigation">
+                        <a href="">{% include "menu.twig" with {'items': menu.get_items} %}</a>
+                      </nav><!-- #nav -->
+									  </div>
+                  </a></li>
 								</ul>
 							</div>
 						</div>
