@@ -8,55 +8,101 @@
 
 	<body class="{{body_class}}" data-template="base.twig">
 		<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
-		    <header class="headerhomepage">
-      <div class="menu">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-md-2">
-			{% block logo %}
-              <div class="logofocus">
-			  	<img src="{{ theme.link }}/img/logoFocus.svg" alt="Focus">
-              </div>
+
+		<header class="header" >
+			{% block header %}
+				<header class="headerhomepage">
+					<div class="menu">
+						<div class="container">
+							<div class="row">
+								<div class="col-12 col-md-2">
+								{% block logo %}
+								{# <div class="logofocus">
+									<img src="{{ theme.link }}/img/logoFocus.svg" alt="Focus">
+								</div> #}
+                <div class="wrapper">
+                  <h1 class="hdr-logo" role="banner">
+                    <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+                  </h1>
+                </div>
+								{% endblock %}
+								</div>
+								<div class="col-12 col-md-3 offset-md-3">
+									<div class="wrapper">
+										<nav id="nav-main" class="nav-main" role="navigation">
+											<a href="">{% include "menu.twig" with {'items': menu.get_items} %}</a>
+										</nav><!-- #nav -->
+									</div>
+								</div>
+								{# <div class="col-12 col-md-3 offset-md-1">
+								<a href="">toutes les catégories</a>
+								</div> #}
+							</div>
+						</div>
+					</div>
+					<div class="burger-menu">
+						<div class="container">
+						<div class="row">
+							<div class="col-3">
+							<div class="logofocus">
+								<img src="img/logoFocus.4f920e61.svg" alt="">
+							</div>
+							</div>
+							<div class="col-3 offset-8">
+							<div class="menu-icon">
+								<img src="img/burgermenu.37eb60b3.svg" alt="Menu">
+							</div>
+							</div>
+							<div class="menu-content">
+								<ul>
+									<li><a href="#">tous les photographes</a></li>
+									<li><a href="#">toutes les catégories</a></li>
+								</ul>
+							</div>
+						</div>
+						</div>
+					</div>
+
+
 			{% endblock %}
-            </div>
-            <div class="col-12 col-md-3 offset-md-3">
-              <a href="">tous les photographes</a>
-            </div>
-            <div class="col-12 col-md-3 offset-md-1">
-              <a href="">toutes les catégories</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="burger-menu">
-        <div class="container">
-          <div class="row">
-            <div class="col-3">
-              <div class="logofocus">
-                <img src="img/logoFocus.4f920e61.svg" alt="">
-              </div>
-            </div>
-            <div class="col-3 offset-8">
-              <div class="menu-icon">
-                  <img src="img/burgermenu.37eb60b3.svg" alt="Menu">
-              </div>
-            </div>
-            <div class="menu-content">
-                <ul>
-                    <li><a href="#">tous les photographes</a></li>
-                    <li><a href="#">toutes les catégories</a></li>
-                </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+		</header>
 
 
 
 
 
-      
-    </header>
+
+	  	{# <body class="{{body_class}}" data-template="base.twig">
+		<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
+		<header class="header" >
+			{% block header %}
+				<div class="wrapper">
+					<h1 class="hdr-logo" role="banner">
+						<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+					</h1>
+					<nav id="nav-main" class="nav-main" role="navigation">
+						{% include "menu.twig" with {'items': menu.get_items} %}
+					</nav><!-- #nav -->
+				</div>
+			{% endblock %}
+		</header> #}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		{% block preface %}
 			{% block photographers %}
