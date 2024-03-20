@@ -72,14 +72,21 @@ foreach ( $all_photo_types as $single_photo_type ) {
 
     $image = Timber::get_posts( $args );
 
-    if(!empty($image)) {
-        $image = reset($image); // Prend la premiere image trouvée
-        $single_photo_type->image_url = $image->link();
-    } else {
-        $single_photo_type->image_url = null;
-    }
+    // if(!empty($image)) {
+    //     $image = reset($image); // Prend la premiere image trouvée
+    //     $single_photo_type->image_url = $image->link();
+    // } else {
+    //     $single_photo_type->image_url = null;
+    // }
 
-    $context['photo_types'][] = $single_photo_type;
+    // $context['photo_types'][] = $single_photo_type;
+    
+        // Ne pas inclure les termes qui n'ont pas d'images associées.
+        if (!empty($image)) {
+            $image = reset($image); // Prend la première image trouvée
+            $single_photo_type->image_url = $image->link();
+            $context['photo_types'][] = $single_photo_type;
+        }
 
 }
 
