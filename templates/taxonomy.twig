@@ -1,70 +1,52 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-taxonomy">
-			<section class="article-content">
-				<h1 class="taxonomy-h1">{{taxonomy_title}}</h1>
-				<div class="taxonomy-body">
+    <div class="content-wrapper">
+        <article class="post-type-taxonomy">
+            <section class="article-content">
 
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <h1 class="taxonomy-h1">{{taxonomy_title}}</h1>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="taxonomy-body">
+                    <section class="trendingphotographer">
+                        <div class="container">
+                            {% if posts %}
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2>Photographes</h2>
+                                    </div>
+                                    {% for post in posts %}
+                                        <div class="col-12 col-lg-4">
+                                            <article class="cardphotographer">
+                                                <a href="{{ post.link }}">
+                                                    <img src="{{ post.thumbnail.src('large') }}" alt="{{ post.thumbnail.alt }}">
+                                                    <div class="overlay">
+                                                        {% for term in post.terms('photo-type') %}
+                                                            <a href="{{ site.link }}/{{ term.taxonomy }}/{{ term.slug }}">{{ term.name }}</a>
+                                                        {% endfor %}
+                                                        <h3 class="taxonomy-post-title"><a href="{{post.link}}">{{post.title}}</a></h3>
+                                                    </div>
+                                                </a>
+                                            </article>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </section>
 
+                    {% if pictures %}
+                        {% include 'partial/pictures-gallery.twig' %}
+                    {% endif %}
 
-
-
-
-
-					{% if posts %}
-
-					<section class="trendingphotographer">
-						<div class="container">
-							<div class="row">
-								<div class="col-12 col-md-4">
-									<h2>Photographes</h2>
-								</div>
-						{% for post in posts %}
-						<div class="row">
-            	<div class="col-12 col-lg-4"> 
-								<a href="{{post.link}}">
-									<article class="cardphotographer">
-										<div class="taxonomy-post">
-											<img class="taxonomy-post-image" src="{{post.thumbnail.src('medium')}}" alt="{{post.thumbnail.alt}}">
-												<div class="overlay">
-													{% for term in post.terms('photo-type') %}
-														<a href="{{ site.link }}/{{ term.taxonomy }}/{{ term.slug }}">{{ term.name }}</a>
-													{% endfor %}
-													<h3 class="taxonomy-post-title"><a href="{{post.link}}">{{post.title}}</a></h3>
-												</div>
-										</div>
-									</article>
-								</a>
-							</div>
-						</div>
-
-						{% endfor %}
-
-					    </div>
-        		</div>
-      		</section>
-					{% endif %} 
-
-					{# {% if posts %}
-						<h2>Photographes</h2>
-						{% for post in posts %}
-							<div class="taxonomy-post">
-								<h2 class="taxonomy-post-title"><a href="{{post.link}}">{{post.title}}</a></h2>
-								<img class="taxonomy-post-image" src="{{post.thumbnail.src('medium')}}" alt="{{post.thumbnail.alt}}">
-								<p class="taxonomy-post-date">{{post.date}}</p>
-								<p class="taxonomy-post-excerpt">{{post.excerpt}}</p>
-							</div>
-						{% endfor %}
-					{% endif %}  #}
-
-					{% if pictures %}
-						{% include 'partial/pictures-gallery.twig' %}
-					{% endif %}
-				</div>
-			</section>
-		</article>
-	</div>
+                </div>
+            </section>
+        </article>
+    </div>
 {% endblock %}
