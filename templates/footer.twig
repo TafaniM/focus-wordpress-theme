@@ -1,1 +1,38 @@
-Copyright {{"now"|date('Y')}}
+<footer>
+    <div class="container">
+    <div class="row">
+        <div class="logo">
+        <div class="col-4 col-md-12">
+            {% block logo %}
+            {# <div class="logofocus">
+                <img src="{{ theme.link }}/img/logoFocus.svg" alt="Focus">
+            </div> #}
+                <div class="logofocus">
+                  <div class="wrapper">
+                    <h1 class="hdr-logo" role="banner">
+                      <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+                    </h1>
+                  </div>
+            </div>
+            {% endblock %}
+        </div>
+        </div>
+        <div class="socialmedia">
+        <div class="col-6 col-md-6 offset-6">
+            <a href="mailto:tafani.marina@gmail.com">
+            <img src="{{ theme.link }}/img/IconMail.svg" alt="Focus">
+            </a>
+            <a href="https://www.behance.net/marinatafani1" target="_blank">
+            <img src="{{ theme.link }}/img/IconInsta.svg" alt="Focus">
+            </a>
+            <a href="https://www.linkedin.com/in/marina-tafani-a747a72bb" target="_blank">
+            <img src="{{ theme.link }}/img/IconLinkedin.svg" alt="Focus">
+            </a>
+        </div>
+        <div class="col-6 col-md-6 offset-6">
+            <p>©Copyright {{"now"|date('Y')}}</p>
+        </div>
+        </div>
+    </div>
+    </div>
+</footer>
