@@ -32,17 +32,37 @@
 {% endblock %}
 
 {% block popular %}
-    <!-- start: photographer block -->
-    <article class="popular-block">
-        <h2 class="">popular photographer</h2>        
-        <ul>
-            {% for profile in popular %}
-                <li><a href="{{ profile.link }}">{{ profile.title }}</a></li>
-                {# {% include 'partial/article-card.twig' %} #}
-            {% endfor %}
-        </ul>
-    </article>
-    <!-- end: photographer block -->
+<!-- start: popular photographer block -->
+<section class="trendingphotographer">
+    <div class="container">
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<h2 class="">photographes populaires</h2>
+			</div>
+		</div>
+        {% if popular %}
+            <div class="row">
+                {% for profile in popular %}
+                    <div class="col-12 col-lg-4">
+                        <article class="cardphotographer">
+                            <a href="{{ profile.link }}">
+                                <img src="{{ profile.thumbnail.src('large') }}" alt="{{ profile.thumbnail.alt }}">
+                                <div class="overlay">
+                                    <!-- Si les profils populaires ont des termes associés, incluez-les ici -->
+                                    {% for term in profile.terms('photo-type') %}
+                                        <a href="{{ site.link }}/{{ term.taxonomy }}/{{ term.slug }}">{{ term.name }}</a>
+                                    {% endfor %}
+                                    <h3><a href="{{profile.link}}">{{profile.title}}</a></h3>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>
+<!-- end: popular photographer block -->
 {% endblock %}
 
 {% block categories %}
