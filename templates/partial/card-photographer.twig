@@ -1,0 +1,23 @@
+<section class="trendingphotographer">
+    <div class="container">
+        {% if photographer %}
+            <div class="row">
+                {% for profile in photographer %}
+                    <div class="col-12 col-lg-4">
+                        <article class="cardphotographer">
+                            <a href="{{ profile.link }}">
+                                <img src="{{ profile.thumbnail.src('large') }}" alt="{{ profile.thumbnail.alt }}">
+                                <div class="overlay">
+                                    {% for term in profile.terms('photo-type') %}
+                                        <a href="{{ site.link }}/{{ term.taxonomy }}/{{ term.slug }}">{{ term.name }}</a>
+                                    {% endfor %}
+                                    <h3><a href="{{profile.link}}">{{profile.title}}</a></h3>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>

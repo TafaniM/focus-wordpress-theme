@@ -39,13 +39,14 @@
 
 $args = array(
     'post_type' => 'photographer',
-    'posts_per_page' => '-1',
+    'posts_per_page' => '3',
     'orderby' => 'date',
     'order' => 'DESC',
     'post_status' => 'publish'
 );
 
 $context['photographer'] = Timber::get_posts( $args );
+
 
 $args = array(
     'post_type' => 'photographer',
@@ -64,6 +65,7 @@ $args = array(
 
 $context['popular'] = Timber::get_posts( $args );
 // get_terms() -> aller chercher les termes d'une taxonomie
+
 
 ////
 $args = array(

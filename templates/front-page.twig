@@ -19,13 +19,14 @@
 {% block photographers %}
     <!-- start: photographer block -->
     <article class="photographers-block">
-        <h2 class="">trending photographer</h2>        
-        <ul>
-            {% for profile in photographer %}
-                <li><a href="{{ profile.link }}">{{ profile.title }}</a> {{ profile.meta('popular')|join('') }}</li>
-                {# {% include 'partial/article-card.twig' %} #}
-            {% endfor %}
-        </ul>
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<h2 class="">dernier ajouts</h2>
+				</div>
+			</div>
+		</div>        
+		{% include 'partial/card-photographer.twig' %}
     </article>
     <!-- end: photographer block -->
 {% endblock %}
