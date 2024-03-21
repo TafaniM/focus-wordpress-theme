@@ -4,16 +4,29 @@
 {% endblock %}
 
 {% block content %}
-    <div class="content-wrapper">
-        <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-            <section class="article-content">
-                <h1 class="article-h1">{{post.title}}</h1>
-                <div class="article-body">
-                    {{post.content}}
-                </div>
-            </section>
-        </article>
-    </div><!-- /content-wrapper -->
+	<div class="intro">
+        <div class="container">
+          <div class="row">
+		      <div class="content-wrapper">
+        		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+           			 <section class="article-content">
+						<div class="col-12 col-md-5">
+						<p class="littletitle">Bienvenue sur</p>
+						<h5>Focus!</h5>
+						</div>
+						<div class="col-12 col-md-9 offset-md-3">
+							<p>
+								<div class="article-body">
+									{{post.content}}
+								</div>
+							</p>
+						</div>
+					</section>
+        		</article>
+   			 </div><!-- /content-wrapper -->
+          </div>
+        </div>
+      </div>
 {% endblock %}
 
 {% block photographers %}
