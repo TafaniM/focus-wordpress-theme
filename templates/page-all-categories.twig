@@ -23,8 +23,14 @@
 
 {% block allcategories %}
     <!-- start: allcategorie block -->
-
-    {% include 'partial/card-categorie.twig' %}
-    
+    <section class="trendingcategories">
+        <div class="container">
+            {% if photo_types %}
+                {% for photo_type in photo_types %}
+                    {% include 'partial/categorie-gallery.twig' %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </section>
     <!-- end: allcategorie block -->
 {% endblock %}

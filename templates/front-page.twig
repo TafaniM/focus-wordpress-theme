@@ -26,7 +26,17 @@
 				</div>
 			</div>
 		</div>        
-		{% include 'partial/card-photographer.twig' %}
+		<section class="trendingphotographer">
+			<div class="container">
+				{% if photographer %}
+					<div class="row">
+						{% for profile in photographer %}
+							{% include 'partial/photographer-gallery.twig' %}
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+    	</section> 
     </article>
     <!-- end: photographer block -->
 {% endblock %}
@@ -43,20 +53,7 @@
         {% if popular %}
             <div class="row">
                 {% for profile in popular %}
-                    <div class="col-12 col-lg-4">
-                        <article class="cardphotographer">
-                            <a href="{{ profile.link }}">
-                                <img src="{{ profile.thumbnail.src('large') }}" alt="{{ profile.thumbnail.alt }}">
-                                <div class="overlay">
-                                    <!-- Si les profils populaires ont des termes associés, incluez-les ici -->
-                                    {% for term in profile.terms('photo-type') %}
-                                        <a href="{{ site.link }}/{{ term.taxonomy }}/{{ term.slug }}">{{ term.name }}</a>
-                                    {% endfor %}
-                                    <h3><a href="{{profile.link}}">{{profile.title}}</a></h3>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
+					{% include 'partial/photographer-gallery.twig' %}
                 {% endfor %}
             </div>
         {% endif %}
@@ -89,7 +86,15 @@
 			</div>
 		</div>
 	</div>
-	{% include 'partial/card-categorie.twig' %}
+	<section class="trendingcategories">
+		<div class="container">
+			{% if photo_types %}
+				{% for photo_type in photo_types %}
+					{% include 'partial/categorie-gallery.twig' %}
+				{% endfor %}
+			{% endif %}
+		</div>
+    </section>
     <!-- end: categorie block -->
 {% endblock %}
 

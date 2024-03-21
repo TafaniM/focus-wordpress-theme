@@ -25,8 +25,16 @@
 
 {% block allphotographers %}
     <!-- start: photographer block -->
-
-    {% include 'partial/card-photographer.twig' %}
-    
+    <section class="trendingphotographer">
+        <div class="container">
+            {% if photographer %}
+                <div class="row">
+                    {% for profile in photographer %}
+                        {% include 'partial/photographer-gallery.twig' %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </section> 
     <!-- end: photographer block -->
 {% endblock %}
