@@ -4,166 +4,94 @@
 {% endblock %}
 
 {% block content %}
-	<div class="intro">
+    <div class="intro">
         <div class="container">
-          <div class="row">
-		      <div class="content-wrapper">
-        		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-           			 <section class="article-content">
-						<div class="col-12 col-md-5">
-						<p class="littletitle">Bienvenue sur</p>
-						<h5>Focus!</h5>
-						</div>
-						<div class="col-12 col-md-9 offset-md-3">
-							<p>
-								<div class="article-body">
-									{{post.content}}
-								</div>
-							</p>
-						</div>
-					</section>
-        		</article>
-   			 </div><!-- /content-wrapper -->
-          </div>
+            <div class="row">
+                <div class="content-wrapper">
+                    <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+                        <section class="article-content">
+                            <div class="col-12 col-md-5">
+                                <p class="littletitle">Bienvenue sur</p>
+                                <h5>Focus!</h5>
+                            </div>
+                            <div class="col-12 col-md-9 offset-md-3">
+                                <p>
+                                    <div class="article-body">
+                                        {{post.content}}
+                                    </div>
+                                </p>
+                            </div>
+                        </section>
+                    </article>
+                </div><!-- /content-wrapper -->
+            </div>
         </div>
-      </div>
+    </div>
 {% endblock %}
 
 {% block photographers %}
     <!-- start: photographer block -->
     <article class="photographers-block">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-md-6">
-					<h2 class="">dernier ajouts</h2>
-				</div>
-			</div>
-		</div>        
-		<section class="trendingphotographer">
-			<div class="container">
-				{% if photographer %}
-					<div class="row">
-						{% for profile in photographer %}
-							{% include 'partial/photographer-gallery.twig' %}
-						{% endfor %}
-					</div>
-				{% endif %}
-			</div>
-    	</section> 
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h2 class="">dernier ajouts</h2>
+                </div>
+            </div>
+        </div>        
+        <section class="trendingphotographer">
+            <div class="container">
+                {% if photographer %}
+                    <div class="row">
+                        {% for profile in photographer %}
+                            {% include 'partial/photographer-gallery.twig' %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </section> 
     </article>
     <!-- end: photographer block -->
 {% endblock %}
 
 {% block popular %}
-<!-- start: popular photographer block -->
-<section class="trendingphotographer">
-    <div class="container">
-		<div class="row">
-			<div class="col-12 col-md-6">
-				<h2 class="">photographes populaires</h2>
-			</div>
-		</div>
-        {% if popular %}
+    <!-- start: popular photographer block -->
+    <section class="trendingphotographer">
+        <div class="container">
             <div class="row">
-                {% for profile in popular %}
-					{% include 'partial/photographer-gallery.twig' %}
-                {% endfor %}
+                <div class="col-12 col-md-6">
+                    <h2 class="">photographes populaires</h2>
+                </div>
             </div>
-        {% endif %}
-    </div>
-</section>
-<!-- end: popular photographer block -->
+            {% if popular %}
+                <div class="row">
+                    {% for profile in popular %}
+                        {% include 'partial/photographer-gallery.twig' %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </section>
+    <!-- end: popular photographer block -->
 {% endblock %}
-
-{# {% block categories %}
-    <!-- start: categorie block -->
-<article class="photographers-block"> #}
-		{# <h2 class="">trending photographer</h2>         #}
-		{# <ul>
-			{% for term in categories %}
-				<li><a href="{{ term.link }}">{{ term.title }}</a> {{ term.meta('popular')|join('') }}
-				<img src="{{term.thumbnail.src('medium')}}" alt="{{term.thumbnail.alt}}"></li> #}
-				{# {% include 'partial/article-card.twig' %} #}
-			{# {% endfor %}
-		</ul>
-    <!-- end: categorie block -->
-{% endblock %} #}
-
 
 {% block categories %}
     <!-- start: categorie block -->
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-6">
-				<h2 class="">catégories populaires</h2>
-			</div>
-		</div>
-	</div>
-	<section class="trendingcategories">
-		<div class="container">
-			{% if photo_types %}
-				{% for photo_type in photo_types %}
-					{% include 'partial/categorie-gallery.twig' %}
-				{% endfor %}
-			{% endif %}
-		</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h2 class="">catégories populaires</h2>
+            </div>
+        </div>
+    </div>
+    <section class="trendingcategories">
+        <div class="container">
+            {% if photo_types %}
+                {% for photo_type in photo_types %}
+                    {% include 'partial/categorie-gallery.twig' %}
+                {% endfor %}
+            {% endif %}
+        </div>
     </section>
     <!-- end: categorie block -->
 {% endblock %}
-
-
-
-
-
-
-
-
-
-	  {# {% extends "base.twig" %}
-
-{% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-			<section class="article-content">
-				<h1 class="article-h1">{{ post.title }}</h1>
-				<div class="article-body">
-					{{ post.content }}
-				</div>
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
-{% endblock %}
-
-{% block trending %}
-<!-- start: photographer header -->
-<header class="flex justify-between items-baseline">
-    <h2 class="text-3xl font-bold tracking-tight mb-2">trending photographer</h2>
-    <p><a href="#"><button class="px-2 py-0 rounded-md hover:bg-slate-200 text-slate-900 transition-all">all
-              articles</button></a></p>
-</header>
-<!-- end: photographer header -->
-<!-- start: photographer gallery -->
-<div class="article-gallery   grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-white pt-8">
-    <ul>
-        {% for photographer in photographers %}
-            {% include 'partial/article-card.twig' %}
-        {% endfor %}
-    </ul>
-    <div class="sm:col-span-2 lg:col-span-3 text-center py-4">
-        <button
-            class="px-4 py-2 border-2 rounded-md border-slate-800 bg-white hover:bg-slate-800 text-slate-800 hover:text-white transition-all">read
-            more…</button>
-    </div>
-</div>
-<!-- end: photographer gallery -->
-{% endblock %} #}
-
-
-
-
-
-
-
-
-
-

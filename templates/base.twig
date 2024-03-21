@@ -1,5 +1,4 @@
 {% block html_head_container %}
-
     {% include 'html-header.twig' %}
     {% block head %}
     {% endblock %}
@@ -7,107 +6,104 @@
 {% endblock %}
 
 <body class="{{body_class}}" data-template="base.twig">
-<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
+    <a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
 
-<header class="header" >
-    {% block header %}
-    <header class="headerhomepage">
-        <div class="menu">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-5">
-                        {% block logo %}
-                        <div class="logofocus">
+    <header class="header" >
+        {% block header %}
+        <header class="headerhomepage">
+            <div class="menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-5">
+                            {% block logo %}
+                            <div class="logofocus">
+                                <div class="wrapper">
+                                    <h1 class="hdr-logo" role="banner">
+                                        <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+                                    </h1>
+                                </div>
+                            </div>
+                            {% endblock %}
+                        </div>
+                        <div class="col-12 col-md-7">
                             <div class="wrapper">
-                                <h1 class="hdr-logo" role="banner">
-                                    <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-                                </h1>
+                                <nav id="nav-main" class="nav-main" role="navigation">
+                                    <a href="">{% include "menu.twig" with {'items': menu.get_items} %}</a>
+                                </nav><!-- #nav -->
                             </div>
                         </div>
-                        {% endblock %}
                     </div>
-                    <div class="col-12 col-md-7">
-                        <div class="wrapper">
-                            <nav id="nav-main" class="nav-main" role="navigation">
-                                <a href="">{% include "menu.twig" with {'items': menu.get_items} %}</a>
-                            </nav><!-- #nav -->
+                </div>
+            </div>
+            <div class="burger-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="logofocus">
+                                <img src="img/logoFocus.4f920e61.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3 offset-8">
+                            <div class="menu-icon">
+                                <img src="{{ theme.link }}/img/burgermenu.svg" alt="Menu">
+                            </div>
+                        </div>
+                        <div class="menu-content">
+                            <ul>
+                                <li><a href="#">
+                                    <div class="wrapper">
+                                        <nav id="nav-main" class="nav-main" role="navigation">
+                                            <a href="">{% include "menu.twig" with {'items': menu.get_items} %}</a>
+                                        </nav><!-- #nav -->
+                                    </div>
+                                </a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="burger-menu">
-            <div class="container">
-                <div class="row">
-                    <div class="col-3">
-                        <div class="logofocus">
-                            <img src="img/logoFocus.4f920e61.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-3 offset-8">
-                        <div class="menu-icon">
-                            <img src="{{ theme.link }}/img/burgermenu.svg" alt="Menu">
-                        </div>
-                    </div>
-                    <div class="menu-content">
-                        <ul>
-                            <li><a href="#">
-                                <div class="wrapper">
-                                    <nav id="nav-main" class="nav-main" role="navigation">
-                                        <a href="">{% include "menu.twig" with {'items': menu.get_items} %}</a>
-                                    </nav><!-- #nav -->
-                                </div>
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endblock %}
+    </header>
+
+    {% block preface %}
     {% endblock %}
-</header>
 
-{% block preface %}
+    <section id="content" role="main" class="content-wrapper">
+        {% if title %}<h1>{{title}}</h1>{% endif %}
+        <div class="wrapper {{sidebar_class}}">
+            {% block content %}
+                Sorry, no content
+            {% endblock %}
 
-{% endblock %}
+            {% block photographers %}
+            {% endblock %}
 
-<section id="content" role="main" class="content-wrapper">
-    {% if title %}<h1>{{title}}</h1>{% endif %}
-    <div class="wrapper {{sidebar_class}}">
-        {% block content %}
-            Sorry, no content
-        {% endblock %}
+            {% block popular %}
+            {% endblock %}
 
-        {% block photographers %}
-        {% endblock %}
+            {# {% block photographer %}
+            {% endblock %} #}
 
-        {% block popular %}
-        {% endblock %}
+            {% block categories %}
+            {% endblock %}
 
-        {# {% block photographer %}
-        {% endblock %} #}
+            {% block allphotographers %}
+            {% endblock %}
+            {% block allcategories %}
+            {% endblock %}
+        </div>
+        {% if sidebar %}
+            <aside class="layout-sidebar">
+                {{sidebar}}
+            </aside>
+        {% endif %}
+    </section>
 
-        {% block categories %}
-        {% endblock %}
-
-        {% block allphotographers %}
-        {% endblock %}
-        {% block allcategories %}
-        {% endblock %}
-    </div>
-    {% if sidebar %}
-        <aside class="layout-sidebar">
-            {{sidebar}}
-        </aside>
-    {% endif %}
-</section>
-
-{% block footer %}
-    <footer id="footer">
-        {% include 'footer.twig' %}
-    </footer>
-    {{ function('wp_footer') }}
-{% endblock %}
-
+    {% block footer %}
+        <footer id="footer">
+            {% include 'footer.twig' %}
+        </footer>
+        {{ function('wp_footer') }}
+    {% endblock %}
 </body>
 </html>
-
