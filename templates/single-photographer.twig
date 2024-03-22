@@ -31,4 +31,37 @@
 		{% include 'partial/pictures-gallery.twig' %}
 	{% endif %}
 
+
+{% if otherphotographer|length > 0 %}
+  {% block otherphotographer %}
+    <!-- start: otherphotographer block -->
+    <article class="photographers-block">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <h2>Autres photographes</h2>
+          </div>
+          <div class="col-12 col-md-3 offset-md-3">
+            {% for term in post.terms('photo-type') %}
+              <a href="{{ site.link }}/{{ term.taxonomy }}/{{ term.slug }}">{{ term.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>        
+      <section class="trendingphotographer">
+        <div class="container">
+          <div class="row">
+            {% for profile in otherphotographer %}
+              {% include 'partial/photographer-gallery.twig' with {'photographer': profile} %}
+            {% endfor %}
+          </div>
+        </div>
+      </section> 
+    </article>
+    <!-- end: otherphotographer block -->
+  {% endblock %}
+{% endif %}
+
+
+
 {% endblock %}

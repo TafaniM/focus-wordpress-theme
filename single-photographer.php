@@ -38,4 +38,30 @@ $args = array(
 
 $context['pictures'] = Timber::get_posts($args);
 
+
+$photo_type_terms = $timber_post->terms('photo-type');
+$photo_type_slugs = array_map(function($term) {
+    return $term->slug;
+}, $photo_type_terms);
+
+$args_other_photographers = array(
+    'post_type' => 'photographer',
+    'posts_per_page' => '3',
+    'orderby' => 'date',
+    'order' => 'DESC',
+    'post_status' => 'publish',
+    'post__not_in' => array($timber_post->ID),
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'photo-type',
+            'field' => 'slug',
+            'terms' => $photo_type_slugs,
+            'operator' => 'IN',
+        ),
+    ),
+);
+
+$context['otherphotographer'] = Timber::get_posts($args_other_photographers);
+
+
 Timber::render( 'single-photographer.twig', $context );
