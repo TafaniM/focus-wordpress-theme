@@ -9,6 +9,10 @@ html {
   font-size: 24px;
 }
 
+p {
+  padding-bottom: 3vh;
+}
+
 @media (width <= 1200px) {
   p {
     font-size: 20px;
@@ -5103,12 +5107,13 @@ a:hover {
   color: #fff;
   text-align: right;
   background-color: #000;
-  margin-bottom: 260px;
-  padding: 50px;
+  margin-bottom: 160px;
+  padding: 20px 50px;
 }
 
 .menu {
   justify-content: flex-end;
+  height: 100%;
   display: flex;
 }
 
@@ -5124,8 +5129,9 @@ a:hover {
 .logofocus h1 a {
   text-transform: uppercase;
   text-align: left;
+  margin: 0;
   font-family: RightGothic, sans-serif;
-  font-size: 70px;
+  font-size: 40px;
   font-style: normal;
   text-decoration: none;
   display: block;
@@ -5133,7 +5139,11 @@ a:hover {
 
 @media (width <= 1200px) {
   .headerhomepage {
-    margin-bottom: 180px;
+    margin-bottom: 110px;
+  }
+
+  .logofocus h1 a {
+    font-size: 40px;
   }
 }
 
@@ -5143,7 +5153,7 @@ a:hover {
   }
 
   .headerhomepage {
-    margin-bottom: 150px;
+    margin-bottom: 70px;
     padding: 40px 0 30px;
   }
 }
@@ -5295,19 +5305,24 @@ h3 {
   transition: transform .3s;
 }
 
+.trendingcategories {
+  padding-bottom: 160px;
+}
+
 footer {
   color: #fff;
   background-color: #000;
-  margin-top: 260px;
-  padding: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .socialmedia {
   text-align: right;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 .socialmedia p {
+  margin-top: 7px;
   font-size: 16px;
 }
 
@@ -5322,21 +5337,16 @@ footer img {
 
 .logo {
   border-bottom: .5px solid #fff;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 @media (width <= 768px) {
   footer {
-    margin-top: 125px;
-    padding: 25px;
-  }
-
-  .socialmedia {
-    padding-top: 20px;
+    padding: 10px;
   }
 
   .socialmedia p {
-    font-size: 9px;
+    font-size: 14px;
   }
 
   footer img {
@@ -5387,8 +5397,8 @@ footer img {
   margin-right: 25px;
 }
 
-.presentationphotographer p {
-  padding-bottom: 3vh;
+.presentationphotographer {
+  padding-bottom: 160px;
 }
 
 .gallery img {
@@ -5460,8 +5470,8 @@ body.overlay-open {
   right: 0;
 }
 
-.gallery h2 {
-  padding-top: 260px;
+.gallery {
+  padding-bottom: 160px;
 }
 
 @media (width <= 1200px) {

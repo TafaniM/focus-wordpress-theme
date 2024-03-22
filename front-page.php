@@ -27,6 +27,36 @@
  $timber_post     = new Timber\Post();
  $context['post'] = $timber_post;
  
+// lien all photographer
+$page = get_page_by_path('all-photographer');
+
+
+if ($page) {
+    $page_title = $page->post_title;
+    $page_permalink = get_permalink($page->ID);
+
+    $context['all_photographer_title'] = $page_title;
+    $context['all_photographer_permalink'] = $page_permalink;
+} else {
+    $context['all_photographer_title'] = 'Page not found';
+    $context['all_photographer_permalink'] = '#';
+}
+
+// lien all categories
+$page_categories = get_page_by_path('all-categories');
+
+if ($page_categories) {
+    $page_categories_title = $page_categories->post_title;
+    $page_categories_permalink = get_permalink($page_categories->ID);
+
+    $context['all_categories_title'] = $page_categories_title;
+    $context['all_categories_permalink'] = $page_categories_permalink;
+} else {
+    $context['all_categories_title'] = 'Page not found';
+    $context['all_categories_permalink'] = '#';
+}
+
+ 
 //  $args = array(
 //      'post_type' => 'post',
 //      'posts_per_page' => 5,
@@ -115,9 +145,6 @@ foreach ($all_photo_types as $single_photo_type) {
         }
     }
 }
-
-Timber::render(['front-page.twig'], $context);
-
 
 
 Timber::render( array( 'front-page.twig' ), $context );

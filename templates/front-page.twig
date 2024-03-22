@@ -35,7 +35,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <h2 class="">dernier ajouts</h2>
+                    <h2 class="">derniers ajouts</h2>
                 </div>
             </div>
         </div>        
@@ -62,6 +62,9 @@
                 <div class="col-12 col-md-6">
                     <h2 class="">photographes populaires</h2>
                 </div>
+                <div class="col-12 col-md-3 offset-md-3">
+                    <a href="{{ all_photographer_permalink }}">{{ all_photographer_title }}</a>
+                </div>
             </div>
             {% if popular %}
                 <div class="row">
@@ -81,6 +84,9 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <h2 class="">catégories populaires</h2>
+            </div>
+            <div class="col-12 col-md-3 offset-md-3">
+                <a href="{{ all_categories_permalink }}">{{ all_categories_title }}</a>
             </div>
         </div>
     </div>
