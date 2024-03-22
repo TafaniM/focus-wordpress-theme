@@ -5266,6 +5266,11 @@ h3 {
   padding-bottom: 260px;
 }
 
+.trending-link a {
+  text-align: right;
+  display: block;
+}
+
 @media (width <= 768px) {
   .trendingphotographer {
     padding-bottom: 125px;

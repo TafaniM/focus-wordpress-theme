@@ -63,7 +63,9 @@
                     <h2 class="">photographes populaires</h2>
                 </div>
                 <div class="col-12 col-md-3 offset-md-3">
-                    <a href="{{ all_photographer_permalink }}">{{ all_photographer_title }}</a>
+                    <div class="trending-link">
+                        <a href="{{ all_photographer_permalink }}">{{ all_photographer_title }}</a>
+                    </div>
                 </div>
             </div>
             {% if popular %}
@@ -86,7 +88,9 @@
                 <h2 class="">catégories populaires</h2>
             </div>
             <div class="col-12 col-md-3 offset-md-3">
-                <a href="{{ all_categories_permalink }}">{{ all_categories_title }}</a>
+                <div class="trending-link">
+                    <a href="{{ all_categories_permalink }}">{{ all_categories_title }}</a>
+                </div>
             </div>
         </div>
     </div>
