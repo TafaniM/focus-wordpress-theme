@@ -45,6 +45,35 @@
                         {% include 'partial/pictures-gallery.twig' %}
                     {% endif %}
 
+
+
+                    {% block othercategories %}
+                    <!-- start: othercategories block -->
+                    <section class="trendingcategories">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <h2 class="">autres catégories</h2>
+                                </div>
+                                <div class="col-12 col-md-3 offset-md-3">
+                                    <div class="trending-link">
+                                        <a href="{{ all_categories_permalink }}">{{ all_categories_title }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if othercategories %}
+                                <div class="row">
+                                    {% for photo_type in othercategories %}
+                                        {% include 'partial/categorie-gallery.twig' with {'photo_type': photo_type} %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </section>
+                    <!-- end: othercategories block -->
+                    {% endblock %}
+
+
                 </div>
             </section>
         </article>
